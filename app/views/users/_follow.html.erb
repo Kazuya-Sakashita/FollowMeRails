@@ -1,5 +1,4 @@
-<%= form_with url: relationships_path, method: :post, data: { turbo_frame: "some_frame_id" } do |form| %>
+<%= form_with url: relationships_path, method: :post, class: "follow-form", data: { turbo_frame: "#{user.id}" } do |form| %>
   <%= form.hidden_field :followed_id, value: user.id %>
-  <%= form.submit "フォローする",
-  class: "inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-blue-500 hover:bg-blue-600 rounded shadow ripple hover:shadow-lg focus:outline-none" %>
+  <%= form.submit "フォローする", class: "inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-blue-500 hover:bg-blue-600 rounded shadow ripple hover:shadow-lg focus:outline-none" %>
 <% end %>
