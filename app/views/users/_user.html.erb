@@ -1,0 +1,12 @@
+<div id="user-<%= user.id %>">
+  <%= user.full_name %>
+  <% unless user == current_user %>
+    <% if current_user.following?(user) %>
+      <%= button_to "アンフォロー", relationship_path(current_user.active_relationships.find_by(followed_id: user.id)),
+                    method: :delete, data: { turbo_method: :delete, turbo_confirm: "フォローを解除しますか？" }, class: "btn btn-primary" %>
+    <% else %>
+      <%= button_to "フォロー", relationships_path(followed_id: user.id),
+                    data: { turbo_method: :post }, class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+</div>

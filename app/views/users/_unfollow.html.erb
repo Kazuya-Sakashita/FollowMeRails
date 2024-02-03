@@ -1,0 +1,4 @@
+<%= link_to "フォローを外す",
+            relationship_path(current_user.active_relationships.find_by(followed_id: user.id)),
+            data: { turbo_method: :delete, turbo_confirm: '本当にフォローを解除しますか？' },
+            class: "inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-gray-400 hover:bg-gray-500 rounded shadow ripple hover:shadow-lg focus:outline-none" %>
